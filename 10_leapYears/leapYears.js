@@ -17,10 +17,12 @@
 
 const leapYears = function(year) {
     const isDivByFour = year % 4 === 0;
-    const isDivByOneHun = year % 100 === 0;
+    const isCentury = year % 100 === 0;
     const isDivByFourHun = year % 400 === 0;
     
-    if (isDivByFour && (!isDivByOneHun || isDivByFourHun)) {
+    if (isDivByFour &&
+        (!isCentury || isDivByFourHun)
+    ) {
         return true;
     } else {
         return false;
